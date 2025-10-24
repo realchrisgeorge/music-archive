@@ -205,17 +205,7 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
 
 
-$(document).on('webkitfullscreenchange mozfullscreenchange fullscreenchange', function(e)
-{
 
-  if(full==0){
-    full=1
-  }else if (full == 1){
-    $(".player").removeClass("fullscreen")
-    full = 0
-  }
-
-});
 
  var track = 0;
     var audio;
