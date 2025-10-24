@@ -321,9 +321,6 @@ $(".album .controls div:last-child").css("float","right")
 	 "width":"100%"
  })  
 
-}else{
-	 checkOrientation();
-}
 
 
 
