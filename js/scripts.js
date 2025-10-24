@@ -336,23 +336,6 @@ $(".album .controls div:last-child").css("float","right")
 }
 
 
-function checkOrientation(){
- 
-     if(window.orientation == -90 || window.orientation == 90 ){
-        $(".mobile").hide();
-        $("table").show();
-    }else{
-        $(".mobile").show();
-        $("table").hide();
-    }   
-
-}
-
-  $(window).on("orientationchange", function() {
-    checkOrientation();
-  });
-
-}
 
 
 function toggleFullScreen() {
