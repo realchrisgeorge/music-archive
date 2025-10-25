@@ -205,7 +205,17 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
 
 
+$(document).on('webkitfullscreenchange mozfullscreenchange fullscreenchange', function(e)
+{
 
+  if(full==0){
+    full=1
+  }else if (full == 1){
+    $(".player").removeClass("fullscreen")
+    full = 0
+  }
+
+});
 
  var track = 0;
     var audio;
@@ -321,8 +331,28 @@ $(".album .controls div:last-child").css("float","right")
 	 "width":"100%"
  })  
 
+}else{
+	 checkOrientation();
+}
 
 
+function checkOrientation(){
+ 
+     if(window.orientation == -90 || window.orientation == 90 ){
+        $(".mobile").hide();
+        $("table").show();
+    }else{
+        $(".mobile").show();
+        $("table").hide();
+    }   
+
+}
+
+  $(window).on("orientationchange", function() {
+    checkOrientation();
+  });
+
+}
 
 
 function toggleFullScreen() {
@@ -353,4 +383,5 @@ function toggleFullScreen() {
 
   }
 }
+
 
