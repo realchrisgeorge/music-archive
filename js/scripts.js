@@ -338,11 +338,11 @@ $(".album .controls div:last-child").css("float","right")
 function checkOrientation(){
  
      if(window.orientation == -90 || window.orientation == 90 ){
-        $(".mobile").hide();
+        $(".mobile").show();
         $("table").show();
     }else{
 		$(".mobile").show();
-        $("table").hide();
+        $("table").show();
 
     }   
 
