@@ -112,7 +112,7 @@ $(document).on("click", ".return", function () {
 });
 
 // ------------------------
-// Sections click
+// Sections click (desktop + mobile unified)
 // ------------------------
 $("td.soundtrack, td.about, td.subscribe").on("click", function () {
     $("section").hide();
@@ -133,7 +133,7 @@ $("td.soundtrack, td.about, td.subscribe").on("click", function () {
 // ------------------------
 // Email input focus
 // ------------------------
-$("#mce-EMAIL").on("touchstart mousedown", function () {
+$("#mce-EMAIL").on("focus", function () {
     $(this).attr("value", "").css("color", "white");
 });
 
