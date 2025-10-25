@@ -491,7 +491,7 @@ section p {
 }
 
 
-@media (max-width:600px), handheld and (orientation: landscape){
+@media (max-width:600px), handheld {
 
   html,body{
     height:101%;
