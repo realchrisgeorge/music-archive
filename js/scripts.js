@@ -341,8 +341,8 @@ function checkOrientation(){
         $(".mobile").hide();
         $("table").show();
     }else{
-        $(".mobile").show();
-        $("table").hide();
+        $(".mobile").hide();
+        $("table").show();
     } 
 }
 
