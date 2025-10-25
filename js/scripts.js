@@ -286,72 +286,52 @@ $(document).on('webkitfullscreenchange mozfullscreenchange fullscreenchange', fu
     });
 
 
-if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
 
+    if (document.referrer.indexOf("instagram") > -1) {
 
+        $(".levelA, .levelB").css({
+            "position": "relative",
+            "float": "left",
+            "clear": "both"
+        });
 
-if(document.referrer.indexOf("instagram") > -1) {
+        $("tr td:nth-child(2)").css({
+            "max-height": "100%"
+        });
 
+        $(".center").css({
+            "width": "90%",
+            "margin": "0 auto",
+            "padding-top": "100px"
+        });
 
- $(".levelA, .levelB ").css({
-	"position":"relative",
-	"float":"left",
-	"clear":"both"
-});
+        $(".album").css({
+            "width": "100%",
+            "margin": "0 auto"
+        });
 
-$("tr td:nth-child(2)").css({
-	"max-height":"100%"
-});
+        $(".album .title").appendTo(".album .controls").css("color", "white");
 
-$(".center").css({
-	"width":"90%",
-	"margin":"0 auto",
-	"padding-top":"100px"
-});
+        $(".album .controls .title, .album .controls marquee, marquee, div.title").css({
+            "width": "100%",
+            "clear": "both",
+            "float": "left"
+        });
 
+        $(".album .controls div:last-child").css("float", "right");
 
-$(".album").css({
-	"width":"100%",
-	"margin":"0 auto"
-});
+        $("section p").css("font-size", "26px");
 
-$(".album .title").appendTo(".album .controls").css("color","white");
+        $("input, #mc-embedded-subscribe, #mc_embed_signup").css({
+            "position": "relative",
+            "float": "left",
+            "width": "100%"
+        });
 
-$(".album .controls .title, .album .controls marquee,marquee,div.title").css({
-	"width":"100%",
-	"clear":"both",
-	"float":"left",
-})
-
-$(".album .controls div:last-child").css("float","right")
- $("section p").css("font-size","26px")
- $("input, #mc-embedded-subscribe,#mc_embed_signup").css({
-	 "position":"relative",
-	 "float":"left",
-	 "width":"100%"
- })  
-}else{
-	 checkOrientation();
-}
-
-
-function checkOrientation(){
- 
-     if(window.orientation == -180 || window.orientation == 180 ){
-        $(".mobile").hide();
-        $("table").show();
-    }else{
-        $(".mobile").hide();
-        $("table").show();
-    } 
-}
-
-  $(window).on("orientationchange", function() {
-    checkOrientation();
-  });
+    }
 
 }
-
 
 
 function toggleFullScreen() {
