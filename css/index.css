@@ -530,3 +530,11 @@ section p {
 */
 
 }
+table tr {
+    pointer-events: auto; /* ensures clicks on rows work */
+}
+.levelA.hover,
+.levelB.hover {
+    pointer-events: none; /* hover styling only, clicks pass through */
+}
+
