@@ -52,10 +52,11 @@ $(".sitetitle").on("click", function () {
 $("#seek").on("click", function (e) {
     var x = e.pageX - $("#seek").offset().left;
     var percent = x / $("#seek").width();
-
-    player.getDuration().then(function (duration) {
-        player.setCurrentTime(duration * percent);
-    });
+    if (player) {
+        player.getDuration().then(function (duration) {
+            player.setCurrentTime(duration * percent);
+        });
+    }
 }).mousemove(function (e) {
     $("#seek #hover").css({ "width": e.pageX - $("#seek").offset().left }).show();
 }).mouseleave(function () {
@@ -66,13 +67,13 @@ $("#seek").on("click", function (e) {
 // Vimeo controls
 // ------------------------
 $("#pause").on("click", function () {
-    player.pause();
+    if (player) player.pause();
     $("#pause").hide();
     $("#play").show();
 });
 
 $("#play").on("click", function () {
-    player.play();
+    if (player) player.play();
     $("#pause").show();
     $("#play").hide();
     if (audio) audio.pause();
@@ -89,7 +90,6 @@ $("#fullscreen").on("click", function () {
 $("tr:nth-child(2) li").on("click", function () {
     $("#video").remove();
     $(".player span").append("<div id='video'></div>");
-
     $("section").hide();
     $(".player").show();
     $("table tr").removeClass("a");
@@ -112,9 +112,9 @@ $(document).on("click", ".return", function () {
 });
 
 // ------------------------
-// Sections click (desktop + mobile unified)
+// Sections click (desktop + mobile)
 // ------------------------
-$("td.soundtrack, td.about, td.subscribe").on("click", function () {
+$("td.soundtrack, td.about, td.subscribe").on("click touchstart", function () {
     $("section").hide();
     $(".player").hide();
     $(".levelA").removeClass("hover active");
@@ -133,7 +133,7 @@ $("td.soundtrack, td.about, td.subscribe").on("click", function () {
 // ------------------------
 // Email input focus
 // ------------------------
-$("#mce-EMAIL").on("focus", function () {
+$("#mce-EMAIL").on("focus touchstart", function () {
     $(this).attr("value", "").css("color", "white");
 });
 
@@ -201,3 +201,7 @@ function exitFullscreen() {
     else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
     else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
 }
+
+// ------------------------
+// Remove old orientation checks — desktop now works
+// ------------------------
